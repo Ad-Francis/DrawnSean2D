@@ -1111,9 +1111,7 @@ void MainWindow::onAbout() { m_aboutPopup->exec(); }
 
 //-----------------------------------------------------------------------------
 
-void MainWindow::onOpenOnlineManual() {
-  QDesktopServices::openUrl(QUrl(tr("http://tahoma2d.readthedocs.io")));
-}
+void MainWindow::onOpenOnlineManual() {}
 
 //-----------------------------------------------------------------------------
 
@@ -1123,16 +1121,11 @@ void MainWindow::onOpenOnlineManual() {
 
 //-----------------------------------------------------------------------------
 
-void MainWindow::onOpenWhatsNew() {
-  QDesktopServices::openUrl(
-      QUrl(tr("https://tahoma2d.readthedocs.io/en/latest/whats_new.html")));
-}
+void MainWindow::onOpenWhatsNew() {}
 
 //-----------------------------------------------------------------------------
 
-void MainWindow::onOpenCommunityForum() {
-  QDesktopServices::openUrl(QUrl(tr("https://groups.google.com/g/tahoma2d")));
-}
+void MainWindow::onOpenCommunityForum() {}
 
 //-----------------------------------------------------------------------------
 
@@ -1397,14 +1390,6 @@ extern const char *applicationVersion;
 //-----------------------------------------------------------------------------
 void MainWindow::checkForUpdates() {
   // No public update feed yet.
-  return;
-  // Since there is only a single version of Tahoma, we can do a simple check
-  // against a string
-  QString updateUrl("http://tahoma2d.org/files/tahoma-version.txt");
-
-  m_updateChecker = new UpdateChecker(updateUrl);
-  connect(m_updateChecker, SIGNAL(done(bool)), this,
-          SLOT(onUpdateCheckerDone(bool)));
 }
 //-----------------------------------------------------------------------------
 
@@ -1442,7 +1427,7 @@ void MainWindow::onUpdateCheckerDone(bool error) {
     if (ret == 1) {
       // Write the new last date to file
       QDesktopServices::openUrl(
-          QObject::tr("https://github.com/tahoma2d/tahoma2d/releases/latest"));
+          QObject::tr("https://github.com/Ad-Francis/DrawnSean2d/releases/latest"));
     } else if (ret == 2) {
       SkipVersion = latestVersionStr.toStdString();
     }
@@ -2565,7 +2550,7 @@ void MainWindow::defineActions() {
   // Menu - Help
 
   createMenuHelpAction(MI_OpenOnlineManual, QT_TR_NOOP("&Online Manual..."),
-                       "F1", "manual");
+                       "", "manual");
   createMenuHelpAction(MI_OpenTips, QT_TR_NOOP("&Tips..."), "", "");
   createMenuHelpAction(MI_OpenWhatsNew, QT_TR_NOOP("&What's New..."), "",
                        "web");
