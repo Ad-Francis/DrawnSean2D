@@ -835,6 +835,8 @@ int main(int argc, char *argv[]) {
     tipsPopup->show();
     tipsPopup->raise();
     tipsPopup->activateWindow();
+    // Only show the tips automatically on first launch
+    Preferences::instance()->setValue(tipsPopupEnabled, false);
   }
 
   CommandManager::instance()->execute(T_Hand);
