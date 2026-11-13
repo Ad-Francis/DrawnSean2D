@@ -622,9 +622,9 @@ void Preferences::definePreferenceItems() {
   define(currentTimelineEnabled, "currentTimelineEnabled", QMetaType::Bool,
          true);
   define(currentColumnColor, "currentColumnColor", QMetaType::QColor,
-         QColor(Qt::cyan));
+         QColor(219, 35, 157));
   define(currentCellColor, "currentCellColor", QMetaType::QColor,
-         QColor(Qt::cyan));
+         QColor(219, 35, 157));
   // define(levelNameOnEachMarkerEnabled, "levelNameOnEachMarkerEnabled",
   //  QMetaType::Bool, false);
   define(levelNameDisplayType, "levelNameDisplayType", QMetaType::Int,
