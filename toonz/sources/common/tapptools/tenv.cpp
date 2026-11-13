@@ -174,7 +174,7 @@ public:
       m_applicationVersion = m_version.getAppVersionString();
     }
 
-    m_applicationFullName = m_version.getAppName() + " " + m_applicationVersion;
+    m_applicationFullName = m_version.getAppDisplayName() + " " + m_applicationVersion;
     if (m_version.hasAppNote())
       m_applicationFullName += " " + m_version.getAppNote();
 

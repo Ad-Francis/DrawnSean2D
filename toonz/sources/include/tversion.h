@@ -8,6 +8,7 @@ namespace TVER {
 class ToonzVersion {
 public:
   std::string getAppName(void);
+  std::string getAppDisplayName(void);
   float getAppVersion(void);
   float getAppRevision(void);
   std::string getAppNote(void);
@@ -18,6 +19,7 @@ public:
 
 private:
   const char *applicationName     = "Tahoma2D";
+  const char *applicationDisplayName = "DrawnSean2D";
   const float applicationVersion  = 1.6f;
   const float applicationRevision = 3;
   const char *applicationNote     = "";
@@ -26,6 +28,9 @@ private:
 std::string ToonzVersion::getAppName(void) {
   std::string appname = applicationName;
   return appname;
+}
+std::string ToonzVersion::getAppDisplayName(void) {
+  return std::string(applicationDisplayName);
 }
 float ToonzVersion::getAppVersion(void) {
   float appver = applicationVersion;
@@ -53,7 +58,7 @@ std::string ToonzVersion::getAppRevisionString(void) {
   return apprev;
 }
 std::string ToonzVersion::getAppVersionInfo(std::string msg) {
-  std::string appinfo = std::string(applicationName);
+  std::string appinfo = std::string(applicationDisplayName);
   appinfo += " " + msg + " v";
   appinfo += getAppVersionString();
   appinfo += "." + getAppRevisionString();

@@ -1,6 +1,6 @@
-# Bem-vindo ao Tahoma2D 1.6!
+# Bem-vindo ao DrawnSean2D 1.6!
 
-A Versão 1.6 traz um grande número de novos recursos, aprimoramentos e ainda mais correções que estão listadas [aqui](https://github.com/tahoma2d/tahoma2d/releases/tag/v1.6).
+A Versão 1.6 traz um grande número de novos recursos, aprimoramentos e ainda mais correções que estão listadas [aqui]().
 
 ### Compatibility Changes
 
@@ -11,14 +11,14 @@ A Versão 1.6 traz um grande número de novos recursos, aprimoramentos e ainda m
 ### Usuários de Windows
 
 Se estiver tendo problemas com canetas digitais nesta versão, especialmente se estiver usando um notebook-tablet/Tablet Surface tente uma ou as duas sugestões:
-- Habilite `Preferências` -> `Configurações de Toque/Tablet` -> `Usar suporte nativo do Qt para Windows Ink*` e reinicie o Tahoma2D.
+- Habilite `Preferências` -> `Configurações de Toque/Tablet` -> `Usar suporte nativo do Qt para Windows Ink*` e reinicie o DrawnSean2D.
 - Mantenha a opção acima ativa e instale os drivers `WinTab`. Cheque o fabricante do seu dispositivo para instalar o driver WinTab apropriado.
 
 -----
 
-## Atualizando do Tahoma2D 1.2 ou Migrando do OpenToonz
+## Atualizando do DrawnSean2D 1.2 ou Migrando do OpenToonz
 
-Se estiver migrando do Tahoma2D 1.2 ou do OpenToonz, aqui estão algumas diferenças importantes de se mencionar:
+Se estiver migrando do DrawnSean2D 1.2 ou do OpenToonz, aqui estão algumas diferenças importantes de se mencionar:
 - Alterações na Timeline/Xsheet
   - Células e Colunas não possuem a barra de arrastar no canto por padrão.
   - Se preferir o antigo comportamento, habilite `Preferências` -> `Cena` -> `Mostrar Barras de Arrastar Colunas e Células`.
@@ -32,14 +32,14 @@ Se estiver migrando do Tahoma2D 1.2 ou do OpenToonz, aqui estão algumas diferen
   - Clique com o botão direito do mouse sobre qualquer Célula e selecione `Habilitar/Desabilitar Holds Implícitos` para mudar os modos.
   - Converta Cenas existentes de/para usar Holds Implícitos com `Cena` -> `Converter para Holds Implícitos/Explícitos`.
 - Algumas funções e configurações adicionais do OpenToonz estão escondidas.
-  - Habilite-as em `Preferências` -> `Geral` -> `Mostrar Preferências e Opções Avançadas*` e reinicie o Tahoma2D.
+  - Habilite-as em `Preferências` -> `Geral` -> `Mostrar Preferências e Opções Avançadas*` e reinicie o DrawnSean2D.
 
 -----
 ## Dicas
 - Animações e recursos externos (desenhos) de uma Cena são salvos em arquivos separados dentro de uma pasta de Projeto.
-- Crie um Projeto `Tahoma2D` em sua pasta Documentos e use como seu projeto geral ao invés do padrão `sandbox`.
+- Crie um Projeto `DrawnSean2D` em sua pasta Documentos e use como seu projeto geral ao invés do padrão `sandbox`.
 - Use `Salvar Tudo` (CTRL+S), regularmente, para salvar tanto a Cena quanto os recursos externos. `Salvar Cena` não salva mudanças nos recursos externos, apenas mudanças na Cena.
 - Quando importar recursos externos, recomenda-se usar a opção `Importar` para manter o original intocado.
 - Para múltiplos arquivos raster serem importados em 1 Nível, eles devem seguir a convenção de nome `NomeDoNível.####.ext` ou `NomeDoNível_####.ext`. (ex: ABC.0001.png, ABC.0002.png, etc...)
 - Preste atenção na Barra de Status (parte inferior da tela) para informações adicionais de ferramentas e funções. 
-- Precisa de mais ajuda? Se junte ao Discord do Tahoma2D ou outras redes sociais listadas em https://tahoma2d.org.
+- Precisa de mais ajuda? Se junte ao Discord do DrawnSean2D ou outras redes sociais listadas em .

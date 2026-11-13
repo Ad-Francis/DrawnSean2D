@@ -1,4 +1,4 @@
-name: Tahoma2D macOS Build
+name: macOS Build
 
 on: [workflow_dispatch]
 

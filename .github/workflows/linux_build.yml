@@ -1,4 +1,4 @@
-name: Tahoma2D Linux Build
+name: Linux Build
 
 on: [workflow_dispatch]
 
@@ -65,7 +65,7 @@ jobs:
           export CC="ccache ${{ matrix.cc }}"
           export CXX="ccache ${{ matrix.cxx }}"
           ci-scripts/linux/tahoma-buildlibgphoto2.sh
-      - name: Build Tahoma2D
+      - name: Build
         run: |
           export CC="ccache ${{ matrix.cc }}"
           export CXX="ccache ${{ matrix.cxx }}"
@@ -76,65 +76,16 @@ jobs:
       - name: Create Package
         run: |
           ci-scripts/linux/tahoma-buildpkg.sh
-          mv toonz/build/Tahoma2D-linux.tar.gz toonz/build/Tahoma2D-linux-${{ matrix.compiler }}.tar.gz
-          mv toonz/build/Tahoma2D-linux.deb toonz/build/Tahoma2D-linux-${{ matrix.compiler }}.deb
+          mv toonz/build/Tahoma2D-linux.tar.gz toonz/build/DrawnSean2D-linux-${{ matrix.compiler }}.tar.gz
+          mv toonz/build/Tahoma2D-linux.deb toonz/build/DrawnSean2D-linux-${{ matrix.compiler }}.deb
       - uses: actions/upload-artifact@v7
         with:
-          name: Tahoma2D-linux-${{ matrix.compiler }}.tar.gz
-          path: toonz/build/Tahoma2D-linux-${{ matrix.compiler }}.tar.gz
+          name: DrawnSean2D-linux-${{ matrix.compiler }}.tar.gz
+          path: toonz/build/DrawnSean2D-linux-${{ matrix.compiler }}.tar.gz
       - uses: actions/upload-artifact@v7
         with:
-          name: Tahoma2D-linux-${{ matrix.compiler }}.deb
-          path: toonz/build/Tahoma2D-linux-${{ matrix.compiler }}.deb
-      - name: Get Nightly Release Date
-        if: ${{ github.repository_owner == 'tahoma2d' && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-        run: |
-          echo "NIGHTLYDATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
-          echo "NIGHTLYDATETIME=$(date '+%Y-%m-%d %H:%M:%S %Z')" >> $GITHUB_ENV
-      - name: Update Latest Nightly Release
-        if: ${{ github.repository_owner == 'tahoma2d' && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          artifactErrorsFailBuild: false
-          artifacts: toonz/build/Tahoma2D-linux-${{ matrix.compiler }}.tar.gz,toonz/build/Tahoma2D-linux-${{ matrix.compiler }}.deb
-          artifactContentType: "raw"
-          body: ${{ github.event.head_commit.message }}
-          name: Latest Nightly ${{ env.NIGHTLYDATE }}
-          prerelease: true
-          replacesArtifacts: true
-          tag: nightly
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create/Update Nightlies Tag
-        if: ${{ github.repository_owner == 'tahoma2d' && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-        run: |
-          git remote add nightly_repo https://tahoma2d:${{ secrets.TAHOMA2D_TOKEN }}@github.com/tahoma2d/tahoma2d_nightlies.git
-          git config lfs.https://tahoma2d:${{ secrets.TAHOMA2D_TOKEN }}@github.com/tahoma2d/tahoma2d_nightlies.git.lfs.locksverify false
-          git fetch --unshallow
-          git tag -f nightly
-          git push -f origin nightly
-          git tag -f nightly-${{ github.sha }}
-          git config --unset-all http.https://github.com/.extraheader
-          git push -f nightly_repo nightly-${{ github.sha }}
-          git remote rm nightly_repo
-      - name: Create Nightlies Release
-        if: ${{ github.repository_owner == 'tahoma2d' && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          artifactErrorsFailBuild: false
-          artifacts: toonz/build/Tahoma2D-linux-${{ matrix.compiler }}.tar.gz,toonz/build/Tahoma2D-linux-${{ matrix.compiler }}.deb
-          artifactContentType: "raw"
-          body: ${{ github.event.head_commit.message }}
-          name: ${{ env.NIGHTLYDATETIME }}
-          omitBodyDuringUpdate: true
-          omitNameDuringUpdate: true
-          owner: tahoma2d
-          prerelease: true
-          replacesArtifacts: true
-          repo: tahoma2d_nightlies
-          tag: nightly-${{ github.sha }}
-          token: ${{ secrets.TAHOMA2D_TOKEN }}
+          name: DrawnSean2D-linux-${{ matrix.compiler }}.deb
+          path: toonz/build/DrawnSean2D-linux-${{ matrix.compiler }}.deb
       - name: Remove existing master cache
         if: ${{ steps.restore-cache.outputs.cache-hit == 'true' && github.ref == 'refs/heads/master' }}
         run: gh cache delete ${{ runner.os }}-${{ matrix.compiler }}-refs/heads/master

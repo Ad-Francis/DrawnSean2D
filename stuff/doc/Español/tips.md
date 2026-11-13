@@ -1,6 +1,6 @@
-# ¡Bienvenidos a Tahoma2D 1.6!
+# ¡Bienvenidos a DrawnSean2D 1.6!
 
-La versión 1.6 trae una serie de nuevas características, mejoras y aún más correcciones de errores, que se encuentran listadas [aquí](https://github.com/tahoma2d/tahoma2d/releases/tag/v1.6).
+La versión 1.6 trae una serie de nuevas características, mejoras y aún más correcciones de errores, que se encuentran listadas [aquí]().
 
 ### Cambios en la compatibilidad
 
@@ -11,14 +11,14 @@ La versión 1.6 trae una serie de nuevas características, mejoras y aún más c
 ### Usuarios de Windows
 
 En caso de que se experimentaran problemas con la pluma en esta nueva versión, especialmente al usar una notebook con una tableta o una tableta Surface, intentar una o ambas de las siguientes alternativas:
-- Activar `Preferencias` -> `Opciones táctiles/tableta` -> `Usar soporte nativo de Qt para Windows Ink*` y reiniciar Tahoma2D.
+- Activar `Preferencias` -> `Opciones táctiles/tableta` -> `Usar soporte nativo de Qt para Windows Ink*` y reiniciar DrawnSean2D.
 - Mantener activa la opción de arriba e instalar controladores de `WinTab`. Comprobar con el fabricante del dispositivo para obtener los controladores apropiados de WinTab para el mismo.
 
 -----
 
-## Actualización desde Tahoma2D 1.2 o migración desde OpenToonz
+## Actualización desde DrawnSean2D 1.2 o migración desde OpenToonz
 
-En caso de partir desde Tahoma2D 1.2 u OpenToonz, aquí se mostrarán algunos puntos a tener en cuenta:
+En caso de partir desde DrawnSean2D 1.2 u OpenToonz, aquí se mostrarán algunos puntos a tener en cuenta:
 - Cambios en la Línea de tiempo/Planilla
   - Las celdas y columnas ya no tienen barras de arrastre, de manera predefinida.
   - Hacer clic sobre una celda expuesta o una columna (que no esté vacía) para moverla.
@@ -37,9 +37,9 @@ En caso de partir desde Tahoma2D 1.2 u OpenToonz, aquí se mostrarán algunos pu
 -----
 ## Consejos
 - La animación de la escena y los recursos (los niveles de animación) son almacenados en archivos independientes, dentro de la carpeta del proyecto.
-- Crear una carpeta `Tahoma2D` dentro de la carpeta Documentos y usarla para almacenar allí todos los proyectos, en vez de usar la carpeta predefinida `sandbox`.
+- Crear una carpeta `DrawnSean2D` dentro de la carpeta Documentos y usarla para almacenar allí todos los proyectos, en vez de usar la carpeta predefinida `sandbox`.
 - Usar el comando `Guardar todo` de manera regular, para guardar tanto la escena como los archivos de los recursos usados. El comando `Guardar escena` no guardará los cambios en los recursos, sino solamente los de la escena.
-- Al usar recursos externos al proyecto, se recomienda utilizar la opción `Importar` para mantener los archivos originales intactos, ya que Tahoma2D usualmente modifica los archivos usados dentro de un proyecto.
+- Al usar recursos externos al proyecto, se recomienda utilizar la opción `Importar` para mantener los archivos originales intactos, ya que DrawnSean2D usualmente modifica los archivos usados dentro de un proyecto.
 - Para que una secuencia de archivos de imagen sea tomada por el programa como 1 único nivel, deberán usar esta nomenclatura `nombre_de_nivel.####.ext` o `nombre_de_nivel_####.ext`. (p.ej: ABC.0001.png, ABC.0002.png, etc...)
 - En la Barra de estado se mostrará información adicional para muchas opciones, comandos y herramientas.
-- En caso de necesitar ayuda, unirse al canal de Tahoma2D en Discord o en las otras redes sociales listadas en https://tahoma2d.org.
+- En caso de necesitar ayuda, unirse al canal de DrawnSean2D en Discord o en las otras redes sociales listadas en .

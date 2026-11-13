@@ -1,4 +1,4 @@
-name: Tahoma2D Windows Build
+name: Windows Build
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -38,7 +38,7 @@ jobs:
           ci-scripts\windows\tahoma-get3rdpartyapps.bat
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v3
-      - name: Build Tahoma2D
+      - name: Build
         run: |
           ci-scripts\windows\tahoma-build.bat
       - name: Create Package
@@ -46,73 +46,24 @@ jobs:
           ci-scripts\windows\tahoma-buildpkg.bat
       - uses: actions/upload-artifact@v7
         with:
-          name: Tahoma2D-portable-win.zip
-          path: toonz\build\Tahoma2D-portable-win.zip
+          name: DrawnSean2D-portable-win.zip
+          path: toonz\build\DrawnSean2D-portable-win.zip
       - uses: actions/upload-artifact@v7
         with:
-          name: Tahoma2D-install-win.exe
-          path: toonz\build\Tahoma2D-install-win.exe
+          name: DrawnSean2D-setup.exe
+          path: toonz\build\DrawnSean2D-setup.exe
       - name: Publish Release
         if: ${{ github.repository_owner != 'tahoma2d' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/master') }}
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('v1.6.3-{0}', github.run_number) }}
           commit: ${{ github.sha }}
-          artifacts: toonz\build\Tahoma2D-install-win.exe,toonz\build\Tahoma2D-portable-win.zip
+          artifacts: toonz\build\DrawnSean2D-setup.exe
           artifactContentType: "raw"
-          generateReleaseNotes: true
+          name: DrawnSean2D ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('v1.6.3-{0}', github.run_number) }}
+          generateReleaseNotes: false
           makeLatest: true
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Get Nightly Release Date
-        if: ${{ github.repository_owner == 'tahoma2d' && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-        run: |
-          chcp 65001 #set code page to utf-8
-          echo ("NIGHTLYDATE=" + (Get-Date -format "yyyy-MM-dd")) >> $env:GITHUB_ENV
-          echo ("NIGHTLYDATETIME=" + (Get-Date -format "yyyy-MM-dd HH:mm:ss UTC")) >> $env:GITHUB_ENV
-      - name: Update Latest Nightly Release
-        if: ${{ github.repository_owner == 'tahoma2d' && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          artifactErrorsFailBuild: false
-          artifacts: toonz\build\Tahoma2D-portable-win.zip,toonz\build\Tahoma2D-install-win.exe
-          artifactContentType: "raw"
-          body: ${{ github.event.head_commit.message }}
-          name: Latest Nightly ${{ env.NIGHTLYDATE }}
-          prerelease: true
-          replacesArtifacts: true
-          tag: nightly
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create/Update Nightlies Tag
-        if: ${{ github.repository_owner == 'tahoma2d' && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-        run: |
-          git remote add nightly_repo https://tahoma2d:${{ secrets.TAHOMA2D_TOKEN }}@github.com/tahoma2d/tahoma2d_nightlies.git
-          git config lfs.https://tahoma2d:${{ secrets.TAHOMA2D_TOKEN }}@github.com/tahoma2d/tahoma2d_nightlies.git.lfs.locksverify false
-          git fetch --unshallow
-          git tag -f nightly
-          git push -f origin nightly
-          git tag -f nightly-${{ github.sha }}
-          git config --unset-all http.https://github.com/.extraheader
-          git push -f nightly_repo nightly-${{ github.sha }}
-          git remote rm nightly_repo
-      - name: Create Nightlies Release
-        if: ${{ github.repository_owner == 'tahoma2d' && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          artifactErrorsFailBuild: false
-          artifacts: toonz\build\Tahoma2D-portable-win.zip,toonz\build\Tahoma2D-install-win.exe
-          artifactContentType: "raw"
-          body: ${{ github.event.head_commit.message }}
-          name: ${{ env.NIGHTLYDATETIME }}
-          omitBodyDuringUpdate: true
-          omitNameDuringUpdate: true
-          owner: tahoma2d
-          prerelease: true
-          replacesArtifacts: true
-          repo: tahoma2d_nightlies
-          tag: nightly-${{ github.sha }}
-          token: ${{ secrets.TAHOMA2D_TOKEN }}
       - name: Remove existing master cache
         if: ${{ steps.restore-cache.outputs.cache-hit == 'true' && github.ref == 'refs/heads/master' }}
         run: gh cache delete ${{ runner.os }}-refs/heads/master

@@ -1048,7 +1048,7 @@ QPixmap DvDirModelNetworkNode::getPixmap(bool isOpen) const {
 //-----------------------------------------------------------------------------
 
 DvDirModelStuffFolderNode::DvDirModelStuffFolderNode(DvDirModelNode *parent)
-    : DvDirModelNode(parent, L"Tahoma2D") {
+    : DvDirModelNode(parent, L"DrawnSean2D") {
   m_nodeType = "StuffFolder";
 }
 

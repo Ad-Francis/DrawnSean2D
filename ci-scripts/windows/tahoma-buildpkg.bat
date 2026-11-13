@@ -93,7 +93,8 @@ IF EXIST ..\..\thirdparty\qt\5.15.2_wintab\msvc2019_64 set QT_PATH=..\..\thirdpa
 echo "QT_PATH=%QT_PATH%"
 
 
-%QT_PATH%\bin\windeployqt.exe Tahoma2D\Tahoma2D.exe --opengl
+IF EXIST Tahoma2D\Tahoma2D.exe move /Y Tahoma2D\Tahoma2D.exe Tahoma2D\DrawnSean2D.exe
+%QT_PATH%\bin\windeployqt.exe Tahoma2D\DrawnSean2D.exe --opengl
 
 
 IF EXIST ..\..\thirdparty\apps\ffmpeg\bin (
@@ -116,7 +117,7 @@ echo ">>> Remove unnecessary files"
 REM Remove github keep files
 del /A- /S ..\..\stuff\*.gitkeep
 
-echo ">>> Creating Tahoma2D Windows Installer"
+echo ">>> Creating Windows Installer"
 IF NOT EXIST installer mkdir installer
 cd installer
 
@@ -131,12 +132,12 @@ ISCC.exe /I. /O.. ..\..\installer\windows\setup.iss
 
 cd ..
 
-echo ">>> Creating Tahoma2D Windows Portable package"
+echo ">>> Creating Windows Portable package"
 
 xcopy /Y /E /I ..\..\stuff Tahoma2D\tahomastuff
 
-IF EXIST Tahoma2D-portable-win.zip del Tahoma2D-portable-win.zip
-7z a Tahoma2D-portable-win.zip Tahoma2D
+IF EXIST DrawnSean2D-portable-win.zip del DrawnSean2D-portable-win.zip
+7z a DrawnSean2D-portable-win.zip Tahoma2D
 
 
 cd ../..

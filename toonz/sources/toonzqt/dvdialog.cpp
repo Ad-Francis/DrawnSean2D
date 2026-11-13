@@ -72,7 +72,7 @@ QPixmap getMsgBoxPixmap(MsgType type) {
 QString getMsgBoxTitle(MsgType type) {
   TVER::ToonzVersion tver;
   QString title = QString::fromStdString(
-      tver.getAppName() + " " + tver.getAppVersionString() +
+      tver.getAppDisplayName() + " " + tver.getAppVersionString() +
       (tver.hasAppNote() ? " " + tver.getAppNote() : "") + " - ");
 
   switch (type) {
@@ -837,7 +837,7 @@ RadioButtonDialog::RadioButtonDialog(const QString &labelText,
                                      const QList<QString> &radioButtonList,
                                      QWidget *parent, Qt::WindowFlags f)
     : Dialog(parent, true, true), m_result(1) {
-  setWindowTitle(tr("Tahoma2D"));
+  setWindowTitle(tr("DrawnSean2D"));
 
   setMinimumSize(20, 20);
 
@@ -907,7 +907,7 @@ ProgressDialog::ProgressDialog(const QString &labelText,
                                const QString &cancelButtonText, int minimum,
                                int maximum, QWidget *parent, Qt::WindowFlags f)
     : Dialog(parent, true, true), m_isCanceled(false) {
-  setWindowTitle(tr("Tahoma2D"));
+  setWindowTitle(tr("DrawnSean2D"));
 
   setMinimumSize(20, 20);
 

@@ -134,7 +134,7 @@ static void toonzRunOutOfContMemHandler(unsigned long size) {
 #ifdef _WIN32
   static bool firstTime = true;
   if (firstTime) {
-    MessageBox(NULL, (LPCWSTR)L"Run out of contiguous physical memory: please save all and restart Tahoma2D!",
+    MessageBox(NULL, (LPCWSTR)L"Run out of contiguous physical memory: please save all and restart DrawnSean2D!",
 				   (LPCWSTR)L"Warning", MB_OK | MB_SYSTEMMODAL);
     firstTime = false;
   }
@@ -465,7 +465,7 @@ int main(int argc, char *argv[]) {
 
   // splash screen
   QPixmap splashPixmap =
-      QIcon(":Resources/tahoma2d_splash.svg").pixmap(QSize(344, 344));
+      QIcon(":Resources/tahoma2d_splash.svg").pixmap(QSize(560, 360));
 
 #ifdef _WIN32
   QFont font("Segoe UI", -1);
@@ -476,7 +476,7 @@ int main(int argc, char *argv[]) {
   font.setWeight(50);
   a.setFont(font);
 
-  QString offsetStr("\n\n\n\n\n\n\n\n");
+  QString offsetStr("");
 
   TSystem::hasMainLoop(true);
 
@@ -493,7 +493,7 @@ int main(int argc, char *argv[]) {
   a.processEvents();
 
   splash.showMessage(offsetStr + "Loading Translator...",
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   a.processEvents();
 
   // Carico la traduzione contenuta in toonz.qm (se ï¿½ presente)
@@ -562,7 +562,7 @@ int main(int argc, char *argv[]) {
   a.setLayoutDirection(Qt::LeftToRight);
 
   splash.showMessage(offsetStr + QObject::tr("Initializing QGLFormat..."),
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   a.processEvents();
 
   // OpenGL
@@ -574,7 +574,7 @@ int main(int argc, char *argv[]) {
 #endif
 
   splash.showMessage(offsetStr + QObject::tr("Initializing environment..."),
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   a.processEvents();
 
   // Install run out of contiguous memory callback
@@ -646,7 +646,7 @@ int main(int argc, char *argv[]) {
 
 
   splash.showMessage(offsetStr + QObject::tr("Loading styles..."),
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   a.processEvents();
 
   // stile
@@ -655,24 +655,24 @@ int main(int argc, char *argv[]) {
   IconGenerator::setFilmstripIconSize(Preferences::instance()->getIconSize());
 
   splash.showMessage(offsetStr + QObject::tr("Loading brush tips..."),
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   TBrushTipManager::instance()->loadItems();
 
   splash.showMessage(offsetStr + QObject::tr("Loading shaders..."),
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   a.processEvents();
 
   loadShaderInterfaces(ToonzFolder::getLibraryFolder() + TFilePath("shaders"));
 
-  splash.showMessage(offsetStr + QObject::tr("Initializing Tahoma2D..."),
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+  splash.showMessage(offsetStr + QObject::tr("Initializing DrawnSean2D..."),
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   a.processEvents();
 
   TTool::setApplication(TApp::instance());
   TApp::instance()->init();
 
   splash.showMessage(offsetStr + QObject::tr("Loading Plugins..."),
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   a.processEvents();
   /* poll the thread ends:
    絶対に必要なわけではないが PluginLoader は中で setup
@@ -685,7 +685,7 @@ int main(int argc, char *argv[]) {
   }
 
   splash.showMessage(offsetStr + QObject::tr("Creating main window..."),
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   a.processEvents();
 
   /*-- Layoutファイル名をMainWindowのctorに渡す --*/
@@ -757,7 +757,7 @@ int main(int argc, char *argv[]) {
 #endif
 
   splash.showMessage(offsetStr + QObject::tr("Loading style sheet..."),
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   a.processEvents();
 
   // Carico lo styleSheet
@@ -766,7 +766,7 @@ int main(int argc, char *argv[]) {
 
   // Perspective grid tool - custom grid
   splash.showMessage(offsetStr + QObject::tr("Loading Perspective Grid..."),
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   a.processEvents();
 
   TTool *perspectiveTool =
@@ -775,7 +775,7 @@ int main(int argc, char *argv[]) {
 
   // Symmetry tool - 
   splash.showMessage(offsetStr + QObject::tr("Loading Symmetry Guide..."),
-                     Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                     Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   a.processEvents();
 
   TTool *symmetryTool =
@@ -784,11 +784,11 @@ int main(int argc, char *argv[]) {
 
   w.setWindowTitle(QString::fromStdString(TEnv::getApplicationFullName()));
   if (TEnv::getIsPortable()) {
-    splash.showMessage(offsetStr + QObject::tr("Starting Tahoma2D..."),
-                       Qt::AlignRight | Qt::AlignBottom, Qt::black);
+    splash.showMessage(offsetStr + QObject::tr("Starting DrawnSean2D..."),
+                       Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   } else {
     splash.showMessage(offsetStr + QObject::tr("Starting main window..."),
-                       Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                       Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   }
   a.processEvents();
 
@@ -841,7 +841,7 @@ int main(int argc, char *argv[]) {
   if (!loadFilePath.isEmpty()) {
     splash.showMessage(QString(QObject::tr("Loading file '%1'..."))
                            .arg(loadFilePath.getQString()),
-                       Qt::AlignRight | Qt::AlignBottom, Qt::black);
+                       Qt::AlignLeft | Qt::AlignBottom, Qt::white);
     loadFilePath = loadFilePath.withType("tnz");
     if (TFileStatus(loadFilePath).doesExist()) IoCmd::loadScene(loadFilePath);
   }

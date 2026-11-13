@@ -1139,7 +1139,7 @@ void MainWindow::onOpenCommunityForum() {
 void MainWindow::onOpenReportABug() {
   QString str = QString(
       tr("To report a bug, click on the button below to open a web browser "
-         "window for Tahoma2D's Issues page on https://github.com.  Click on "
+         "window for DrawnSean2D's Issues page on https://github.com.  Click on "
          "the 'New issue' button and fill out the form."));
 
   std::vector<QString> buttons = {QObject::tr("Report a Bug"),
@@ -1147,7 +1147,7 @@ void MainWindow::onOpenReportABug() {
   int ret = DVGui::MsgBox(DVGui::INFORMATION, str, buttons, 1);
   if (ret == 1)
     QDesktopServices::openUrl(
-        QUrl("https://github.com/tahoma2d/tahoma2d/issues"));
+        QUrl("https://github.com/Ad-Francis/DrawnSean2d/issues"));
 }
 
 //-----------------------------------------------------------------------------
@@ -1396,6 +1396,8 @@ extern const char *applicationName;
 extern const char *applicationVersion;
 //-----------------------------------------------------------------------------
 void MainWindow::checkForUpdates() {
+  // No public update feed yet.
+  return;
   // Since there is only a single version of Tahoma, we can do a simple check
   // against a string
   QString updateUrl("http://tahoma2d.org/files/tahoma-version.txt");
@@ -1931,10 +1933,10 @@ void MainWindow::defineActions() {
       MI_SoundTrack, QT_TR_NOOP("&Export Soundtrack"), "", "export_soundtrack",
       tr("Exports the soundtrack to the current scene as a wav file."));
   createMenuFileAction(MI_Preferences, QT_TR_NOOP("&Preferences..."), "Ctrl+U",
-                       "gear", tr("Change Tahoma2D's settings."));
+                       "gear", tr("Change DrawnSean2D's settings."));
   createMenuFileAction(MI_ShortcutPopup, QT_TR_NOOP("&Configure Shortcuts..."),
                        "", "shortcuts",
-                       tr("Change the shortcuts of Tahoma2D."));
+                       tr("Change the shortcuts of DrawnSean2D."));
   createMenuFileAction(MI_PrintXsheet, QT_TR_NOOP("&Print Xsheet"), "",
                        "printer", tr("Print the scene's exposure sheet."));
 
@@ -2581,7 +2583,7 @@ void MainWindow::defineActions() {
                           QT_TR_NOOP("Vector Inspector"), "",
                           "vectorinspector");
   createMenuHelpAction(MI_OpenCrashReportFolder, QT_TR_NOOP("&Open Reports Folder..."), "", "");
-  createMenuHelpAction(MI_About, QT_TR_NOOP("&About Tahoma2D..."), "", "info");
+  createMenuHelpAction(MI_About, QT_TR_NOOP("&About DrawnSean2D..."), "", "info");
   //  createMenuHelpAction(MI_SupportTahoma2D, QT_TR_NOOP("&Support
   //  Tahoma2D..."), "",
   //                       "web");
@@ -3616,7 +3618,7 @@ void MainWindow::clearCacheFolder() {
 
   message +=
       tr("\nAre you sure?\n\nN.B. Make sure you are not running another "
-         "process of Tahoma2D,\nor you may delete necessary files for it.");
+         "process of DrawnSean2D,\nor you may delete necessary files for it.");
 
   QMessageBox::StandardButton ret = QMessageBox::question(
       this, tr("Clear Cache Folder"), message,
@@ -3687,7 +3689,7 @@ void MainWindow::makeTransparencyDialog() {
 
   m_transparencyTogglerWindow->setFixedHeight(100);
   m_transparencyTogglerWindow->setFixedWidth(250);
-  m_transparencyTogglerWindow->setWindowTitle(tr("Tahoma2D Transparency"));
+  m_transparencyTogglerWindow->setWindowTitle(tr("DrawnSean2D Transparency"));
   QPushButton *toggleButton = new QPushButton(this);
   toggleButton->setText(tr("Close to turn off Transparency."));
   connect(toggleButton, &QPushButton::clicked,

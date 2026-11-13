@@ -708,10 +708,7 @@ void TopBar::loadMenubar() {
 
   // Menu' HELP
   QMenu *helpMenu = addMenu(ShortcutTree::tr("Help"), m_menuBar);
-  addMenuItem(helpMenu, MI_OpenOnlineManual);
   addMenuItem(helpMenu, MI_OpenTips);
-  addMenuItem(helpMenu, MI_OpenWhatsNew);
-  addMenuItem(helpMenu, MI_OpenCommunityForum);
   helpMenu->addSeparator();
   //  addMenuItem(helpMenu, MI_SupportTahoma2D);
   QMenu *troubleshootMenu = helpMenu->addMenu(tr("Troubleshoot"));
@@ -723,8 +720,6 @@ void TopBar::loadMenubar() {
     addMenuItem(troubleshootMenu, MI_OpenVectorInspectorPanel);
   }
   addMenuItem(helpMenu, MI_OpenCrashReportFolder);
-  helpMenu->addSeparator();
-  addMenuItem(helpMenu, MI_OpenReportABug);
   helpMenu->addSeparator();
   addMenuItem(helpMenu, MI_About);
 

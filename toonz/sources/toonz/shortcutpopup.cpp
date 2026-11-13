@@ -616,7 +616,7 @@ void ShortcutPopup::showDialog(QString text) {
   if (m_dialog == NULL) {
     m_dialogLabel = new QLabel("", this);
     m_dialog      = new DVGui::Dialog(this, false, false);
-    m_dialog->setWindowTitle(tr("Tahoma2D - Setting Shortcuts"));
+    m_dialog->setWindowTitle(tr("DrawnSean2D - Setting Shortcuts"));
     m_dialog->setModal(false);
 
     m_dialog->setTopMargin(10);
@@ -759,7 +759,7 @@ void ShortcutPopup::buildPresets() {
   m_presetChoiceCB->clear();
 
   m_presetChoiceCB->addItem("", QString(""));
-  m_presetChoiceCB->addItem("Tahoma2D", QString("deftahoma2d"));
+  m_presetChoiceCB->addItem("DrawnSean2D", QString("deftahoma2d"));
   // m_presetChoiceCB->addItem("RETAS PaintMan", QString("otretas"));
   m_presetChoiceCB->addItem("Toon Boom Harmony", QString("otharmony"));
   m_presetChoiceCB->addItem("Adobe Animate", QString("otanimate"));

@@ -285,7 +285,7 @@ void Preferences::load() {
   }
 
   if (!m_styleSheetList.contains(getStringValue(CurrentStyleSheetName)))
-    setValue(CurrentStyleSheetName, "Dark");
+    setValue(CurrentStyleSheetName, "DrawnSean");
 
   if (!m_languageList.contains(getStringValue(CurrentLanguageName)))
     setValue(CurrentLanguageName, "English");
@@ -412,7 +412,7 @@ void Preferences::definePreferenceItems() {
 
   // Interface
   define(CurrentStyleSheetName, "CurrentStyleSheetName", QMetaType::QString,
-         "Dark");
+         "DrawnSean");
   define(additionalStyleSheet, "additionalStyleSheet", QMetaType::QString, "");
   define(iconTheme, "iconTheme", QMetaType::Bool, false);
   define(pixelsOnly, "pixelsOnly", QMetaType::Bool, true);
